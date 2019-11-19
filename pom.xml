@@ -13,6 +13,31 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
+  <organization>
+    <name>JCraft,Inc.</name>
+    <url>http://www.jcraft.com/</url>
+  </organization>
+  <scm>
+    <connection>scm:git:http://git.jcraft.com/jsch.git</connection>
+    <developerConnection>scm:git:http://git.jcraft.com/jsch.git</developerConnection>
+    <url>http://git.jcraft.com/jsch.git</url>
+  </scm>
+  <developers>
+    <developer>
+      <id>ymnk</id>
+      <name>Atsuhiko Yamanaka</name>
+      <email>ymnk at jcraft D0t com</email>
+      <url>http://github.com/ymnk</url>
+      <organization>JCraft,Inc.</organization>
+      <organizationUrl>http://www.jcraft.com/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>+9</timezone>
+    </developer>
+  </developers>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -113,16 +138,31 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.47</version>
     </dependency>
-    <!--log4j日志包 -->
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
-    </dependency>
     <dependency>
       <groupId>c3p0</groupId>
       <artifactId>c3p0</artifactId>
       <version>0.9.1.2</version>
+    </dependency>
+
+      <!--log4j日志包 -->
+      <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <version>1.2.17</version>
+      </dependency>
+
+      <!--jcraft包-->
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>0.1.54</version>
+    </dependency>
+
+    <!--lombok包-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.2</version>
     </dependency>
   </dependencies>
 
