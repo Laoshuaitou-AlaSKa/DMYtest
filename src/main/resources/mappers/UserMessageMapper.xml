@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alaska.dmytest.dao.UserMessageMapper">
+    <resultMap id="UserMessageMapper" type="com.alaska.dmytest.entity.UserMessage">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="sex" column="sex"/>
+    </resultMap>
+    <insert id="createUserMessage" parameterType="com.alaska.dmytest.entity.UserMessage">
+        INSERT INTO usermessage(id, userId, nickname, sex) VALUES (#{userMessage.id},#{userMessage.userId},#{userMessage.nickname},#{userMessage.sex} )
+    </insert>
+    <delete id="deleteUserMessageByUserId" parameterType="int">
+        DELETE FROM usermessage WHERE userId = #{userId}
+    </delete>
+    <delete id="deleteUserMessageByNickname" parameterType="string">
+        DELETE FROM usermessage WHERE nickname = #{nickname}
+    </delete>
+    <update id="updateUserMessageByUserId" parameterType="com.alaska.dmytest.entity.UserMessage">
+        UPDATE usermessage SET nickname = #{userMessage.nickname},sex = #{userMessage.sex} WHERE userId = #{userMessage.userId}
+    </update>
+    <select id="selectUserMessageByUserId" resultMap="UserMessageMapper" parameterType="int">
+        SELECT * FROM usermessage WHERE userId = #{userId}
+    </select>
+    <select id="selectUserMessageByNicknaem" resultMap="UserMessageMapper" parameterType="string">
+        SELECT * FROM usermessage WHERE nickname = #{nickname}
+    </select>
+    <select id="selectUserMessagesBySex" resultMap="UserMessageMapper" parameterType="string">
+        SELECT * FROM usermessage WHERE sex = #{sex}
+    </select>
+    <select id="selectAllUserMessages" resultMap="UserMessageMapper">
+        SELECT * FROM usermessage
+    </select>
+
+</mapper>

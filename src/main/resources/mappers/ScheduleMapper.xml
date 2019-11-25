@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alaska.dmytest.dao.ScheduleMapper">
+    <resultMap id="ScheduleMapper" type="com.alaska.dmytest.entity.Schedule">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="begin" column="begin"/>
+        <result property="end" column="end"/>
+    </resultMap>
+    <insert id="createSchedule" parameterType="com.alaska.dmytest.entity.Schedule">
+        INSERT INTO schedule(id, userId, name, description, "begin", "end") VALUES (#{schedule.id},#{schedule.userId} ,#{schedule.name} ,#{schedule.description} ,#{begin} ,#{end}  )
+    </insert>
+    <delete id="deleteScheduleByUserId" parameterType="int">
+        DELETE FROM schedule WHERE userId = #{userId}
+    </delete>
+    <delete id="deleteScheduleByName" parameterType="string">
+        DELETE FROM schedule WHERE name = #{name}
+    </delete>
+    <delete id="deleteScheduleById" parameterType="int">
+        DELETE FROM schedule WHERE id = #{id}
+    </delete>
+    <update id="updateSchedule" parameterType="com.alaska.dmytest.entity.Schedule">
+        UPDATE schedule SET name = #{schedule.name} ,description = #{schedule.description} ,"begin" = #{begin,jdbcType=TIMESTAMP} ,"end" = #{end,jdbcType=TIMESTAMP}
+    </update>
+    <select id="selectScheduleById" resultMap="ScheduleMapper" parameterType="int">
+        SELECT * FROM schedule WHERE id = #{id}
+    </select>
+    <select id="selectSchedulesByUserId" resultMap="ScheduleMapper" parameterType="int">
+        SELECT * FROM schedule WHERE userId = #{userId}
+    </select>
+    <select id="selectScheduleByName" resultMap="ScheduleMapper" parameterType="string">
+        SELECT * FROM schedule WHERE name = #{name}
+    </select>
+    <select id="selectAllSchedule" resultMap="ScheduleMapper">
+        SELECT * FROM schedule
+    </select>
+
+</mapper>

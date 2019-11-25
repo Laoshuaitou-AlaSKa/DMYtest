@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alaska.dmytest.dao.PointMapper">
+    <resultMap id="PointMapper" type="com.alaska.dmytest.entity.Point">
+        <id property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="time" column="time"/>
+    </resultMap>
+    <insert id="createPoint" parameterType="com.alaska.dmytest.entity.Point">
+        INSERT INTO point(id, userId, name, description, "time") VALUES (#{point.id},#{point.userId} ,#{point.name} ,#{point.description} ,#{point.time} )
+    </insert>
+    <delete id="deletePointByUserId" parameterType="int">
+        DELETE FROM point WHERE userId = #{userId}
+    </delete>
+    <delete id="deletePointByName" parameterType="string">
+        DELETE FROM point WHERE name = #{name}
+    </delete>
+    <delete id="deletePointById" parameterType="int">
+        DELETE FROM point WHERE id = #{id}
+    </delete>
+    <update id="updatePoint" parameterType="com.alaska.dmytest.entity.Point">
+        UPDATE point SET name = #{point.name} ,description = #{point.description} ,"time" = #{point.time}
+    </update>
+    <select id="selectPointById" resultMap="PointMapper" parameterType="int">
+        SELECT * FROM point WHERE id = #{id}
+    </select>
+    <select id="selectPointsByUserId" resultMap="PointMapper" parameterType="int">
+        SELECT * FROM point WHERE userId = #{userId}
+    </select>
+    <select id="selectPointByName" resultMap="PointMapper" parameterType="string">
+        SELECT * FROM point WHERE name = #{name}
+    </select>
+    <select id="selectAllPoint" resultMap="PointMapper">
+        SELECT * FROM point
+    </select>
+
+</mapper>
