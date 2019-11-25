@@ -9,8 +9,8 @@ import lombok.Data;
  * @Workstation: AlaSKa_
  * @Author: Laoshuaitou-AlaSKa
  * @Date: 2019/11/19 15:28
- * @Version:
- * @Description:
+ * @Version:1.0
+ * @Description:用户详细信息实体类
  */
 @Data
 public class UserMessage {

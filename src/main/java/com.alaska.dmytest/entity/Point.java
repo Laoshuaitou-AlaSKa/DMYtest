@@ -11,8 +11,8 @@ import java.sql.Timestamp;
  * @Workstation: AlaSKa_
  * @Author: Laoshuaitou-AlaSKa
  * @Date: 2019/11/20 15:03
- * @Version:
- * @Description:
+ * @Version:1.0
+ * @Description:时间点描述实体类
  */
 @Data
 public class Point {
