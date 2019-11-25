@@ -90,14 +90,14 @@ public interface ScheduleMapper {
 	/**
 	 * @Workstation:AlaSKa_
 	 * @Author: Laoshuaitou-AlaSKa
-	 * @methodName: ScheduleMapper.selectScheduleByUserId
+	 * @methodName: SchedulesMapper.selectScheduleByUserId
 	 * 功能描述: 通过用户ID查询属于该用户的时间段集
 	 *
 	 * @params: [userId] 用户ID
 	 * @return: java.util.List<com.alaska.dmytest.entity.Schedule> 被查询的属于该用户的时间段实体集
 	 * @Date: 2019/11/26 1:59
 	 */
-	List<Schedule> selectScheduleByUserId(int userId);
+	List<Schedule> selectSchedulesByUserId(int userId);
 
 	/**
 	 * @Workstation:AlaSKa_
