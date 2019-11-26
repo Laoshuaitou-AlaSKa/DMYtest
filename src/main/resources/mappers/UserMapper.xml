@@ -30,5 +30,8 @@
     <select id="selectAllUser" resultMap="UserMapper" >
         SELECT * FROM "user"
     </select>
+    <select id="getMaxId" resultType="int">
+        SELECT MAX(id) FROM "user"
+    </select>
 
 </mapper>

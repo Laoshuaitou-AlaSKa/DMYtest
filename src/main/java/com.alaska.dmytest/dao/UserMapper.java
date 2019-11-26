@@ -92,4 +92,6 @@ public interface UserMapper {
 	 * @Date: 2019/11/26 1:03
 	 */
 	List<User> selectAllUser();
+
+	int getMaxId();
 }
