@@ -34,11 +34,11 @@ public interface UserService {
 	 * @methodName: UserService.changePassword
 	 * 功能描述: 修改密码功能
 	 *
-	 * @params: [oldPassword, newPassword] 旧密码 新密码
-	 * @return: int 是否成功执行密码修改操作
-	 * @Date: 2019/11/26 15:31
+	 * @params: [userId, oldPassword, newPassword] 用户查询本用户信息的用户ID 输入的旧密码 输入的新密码
+	 * @return: int
+	 * @Date: 2019/12/2 22:41
 	 */
-	public int changePassword(String oldPassword,String newPassword);
+	public int changePassword(int userId,String oldPassword,String newPassword);
 
 	/**
 	 * @Workstation:AlaSKa_

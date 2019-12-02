@@ -80,7 +80,7 @@ public interface UserMessageMapper {
 	 * @return: com.alaska.dmytest.entity.UserMessage 被查询的用户详细信息实体
 	 * @Date: 2019/11/26 1:25
 	 */
-	UserMessage selectUserMessageByNicknaem(@Param("nickname") String nickname);
+	UserMessage selectUserMessageByNickname(@Param("nickname") String nickname);
 
 	/**
 	 * @Workstation:AlaSKa_

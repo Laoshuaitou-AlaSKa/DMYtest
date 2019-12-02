@@ -24,7 +24,7 @@
     <select id="selectUserMessageByUserId" resultMap="UserMessageMapper" parameterType="int">
         SELECT * FROM usermessage WHERE userId = #{userId}
     </select>
-    <select id="selectUserMessageByNicknaem" resultMap="UserMessageMapper" parameterType="string">
+    <select id="selectUserMessageByNickname" resultMap="UserMessageMapper" parameterType="string">
         SELECT * FROM usermessage WHERE nickname = #{nickname}
     </select>
     <select id="selectUserMessagesBySex" resultMap="UserMessageMapper" parameterType="string">

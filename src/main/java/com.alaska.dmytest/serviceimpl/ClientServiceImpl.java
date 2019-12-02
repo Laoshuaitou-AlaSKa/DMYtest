@@ -15,8 +15,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Workstation: AlaSKa_
  * @Author: Laoshuaitou-AlaSKa
  * @Date: 2019/11/26 14:35
- * @Version:
- * @Description:
+ * @Version:1.0
+ * @Description:客户登陆Service实现类
+ * 包含功能：登陆、注册、展示用户信息、修改用户信息、修改密码
  */
 public class ClientServiceImpl implements ClientService{
 	private ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -168,36 +169,63 @@ public class ClientServiceImpl implements ClientService{
 	 * @Workstation:AlaSKa_
 	 * @Author: Laoshuaitou-AlaSKa
 	 * @methodName: ClientServiceImpl.changePassword
-	 * 功能描述: 修改密码操作
-	 * 前提条件：1. 用户必须已登录（userid正确）
-	 * 			 2. 用户必须正确输入原始密码
+	 * 功能描述: 修改密码功能实现
 	 *
-	 * @params: [oldPassword, newPassword] 旧密码 新密码
-	 * @return: int 返回是否成功执行修改密码操作
-	 * @Date: 2019/11/26 15:29
+	 * @params: [userId, oldPassword, newPassword] 用户查询本用户信息的用户ID 输入的旧密码 输入的新密码
+	 * @return: int
+	 * @Date: 2019/12/2 22:42
 	 */
 	@Override
-	public int changePassword(String oldPassword,String newPassword) {
+	public int changePassword(int userId,String oldPassword,String newPassword) {
 		/*-
-		 - @Workstation:AlaSKa_ 
+		 - @Workstation:AlaSKa_
 		 - @Author: Laoshuaitou-AlaSKa
 		 - @methodName: ClientServiceImpl.changePassword
-		 - 部分功能描述: 判断用户是否已登录
-		 - @Date: 2019/11/26 15:33
+		 - 部分功能描述: 通过用户ID查询到当前用户信息
+		 - @Date: 2019/12/2 22:44
 		 -*/
-		
+		User request = userMapper.selectUserById(userId);
+
 		/*-
-		 - @Workstation:AlaSKa_ 
+		 - @Workstation:AlaSKa_
 		 - @Author: Laoshuaitou-AlaSKa
 		 - @methodName: ClientServiceImpl.changePassword
-		 - 部分功能描述: 
-		 - @Date: 2019/11/26 15:33
+		 - 部分功能描述: 比对旧密码是否一致
+		 - @Date: 2019/12/2 22:45
 		 -*/
-		return 0;
+		if (oldPassword.equals(request.getPassword())){
+			return 0;
+		}
+		/*-
+		 - @Workstation:AlaSKa_
+		 - @Author: Laoshuaitou-AlaSKa
+		 - @methodName: ClientServiceImpl.changePassword
+		 - 部分功能描述: 保存新密码
+		 - @Date: 2019/12/2 22:45
+		 -*/
+		request.setPassword(newPassword);
+		return userMapper.updateUser(request);
 	}
 
+	/**
+	 * @Workstation:AlaSKa_
+	 * @Author: Laoshuaitou-AlaSKa
+	 * @methodName: ClientServiceImpl.showUserMessage
+	 * 功能描述: 展示用户信息功能实现
+	 *
+	 * @params: [userId] 用户ID
+	 * @return: com.alaska.dmytest.entity.UserMessage
+	 * @Date: 2019/12/2 22:56
+	 */
 	@Override
 	public UserMessage showUserMessage(int userId) {
-		return null;
+		/*-
+		 - @Workstation:AlaSKa_
+		 - @Author: Laoshuaitou-AlaSKa
+		 - @methodName: ClientServiceImpl.showUserMessage
+		 - 部分功能描述: 查询用户
+		 - @Date: 2019/12/2 22:57
+		 -*/
+		return userMessageMapper.selectUserMessageByUserId(userId);
 	}
 }
